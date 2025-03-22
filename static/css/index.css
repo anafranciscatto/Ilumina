@@ -1,0 +1,76 @@
+
+body {
+    background-image: url('/static/img/fundo-ilumina.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--preto);
+    font-family: Arial, sans-serif;
+}
+
+main {
+    background-color: #fcf8d6a6; /* Fundo branco com leve transparência */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.descricao {
+    font-size: 16px;
+    color: var(--cinza-escuro);
+    margin: 10px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#entrar {
+    background-color: var(--cor-principal);
+    color: var(--branco);
+    border: 1.5px solid  var(--cor-principal);
+}
+
+#entrar:hover {
+    background-color: transparent;
+    color: var(--cor-principal);
+}
+
+#cadastrar {
+    background-color: transparent;
+    color: var(--cor-principal);
+    border: 1.5px solid transparent;
+}
+
+#cadastrar:hover {
+    border: 1.5px solid var(--cor-principal);
+   
+}
