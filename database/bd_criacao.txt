@@ -1,0 +1,41 @@
+-- Criação do Banco de Dados
+CREATE DATABASE IF NOT EXISTS lumina_db;
+USE lumina_db;
+
+-- Tabela de Usuários (Admin e Funcionários) 
+CREATE TABLE IF NOT EXISTS usuarios (
+    cpf VARCHAR(11) PRIMARY KEY,  
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL, 
+    tipo ENUM('admin', 'funcionario') NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Eventos
+CREATE TABLE IF NOT EXISTS eventos (
+    id_evento INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    data_evento DATE NOT NULL,
+    local VARCHAR(100) NOT NULL,
+    capacidade INT NOT NULL,
+    ingressos_vendidos INT DEFAULT 0,
+    status ENUM('Pendente', 'Confirmado', 'Concluído', 'Cancelado') DEFAULT 'Pendente',
+    criado_por VARCHAR(11),  -- Relacionado ao CPF do administrador que criou o evento
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (criado_por) REFERENCES usuarios(cpf)
+);
+
+--  Tabela de Participantes
+CREATE TABLE IF NOT EXISTS participantes (
+    id_participante INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    evento_id INT,  -- Relacionado ao evento em que o participante se inscreveu
+    data_inscricao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (evento_id) REFERENCES eventos(id_evento)
+);
+
+-- Verificação das tabelas
+SHOW TABLES;
