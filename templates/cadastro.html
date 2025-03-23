@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/cadastro.css">
+    <script defer src="/static/js/cadastro.js"></script>
+    <title>LUMINA - Cadastro</title>
+</head>
+<body>
+    <main>
+        <img src="/static/img/Lumina.png" alt="Logo" class="logo">
+        <p class="descricao">
+          Bem-vindo! Cadastre-se para acessar o sistema de controle de eventos da <strong>LUMINA</strong>.
+        </p>
+        <form action="/cadastrar" method="POST" class="form-cadastro">
+            <input type="text" name="cpf" placeholder="Digite seu CPF" required pattern="\d{11}" class="input-field">
+            <input type="text" name="nome" placeholder="Digite seu nome completo" required class="input-field">
+            <input type="email" name="email" placeholder="Digite seu e-mail" required class="input-field">
+            <div class="password-container">
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required class="input-field">
+                <span class="eye-icon" onclick="togglePassword()">
+                    <img src="/static/img/olho.png" alt="Mostrar Senha" id="toggle-password">
+                </span>
+            </div>
+            <button type="submit" class="btn" id="cadastrar">Cadastrar</button>
+        </form>
+        <p class="link-login">
+          Ja tem uma conta? <a href="/entrar" id="login">Faça login</a>
+        </p>
+    </main>
+</body>
+</html>
