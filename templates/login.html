@@ -14,8 +14,9 @@
         <p class="descricao">
           Bem-vindo à área de controle de eventos da <strong>LUMINA</strong>. Por favor, faça login para continuar.
         </p>
-        <form action="/login" method="POST" class="form-login">
-            <input type="text" name="cpf" placeholder="Digite seu CPF" required pattern="\d{11}" class="input-field">
+        <!-- Alterado para /entrar e adicionado o campo cpf -->
+        <form action="/entrar" method="POST" class="form-login">
+            <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" required pattern="\d{11}" class="input-field">
             <div class="password-container">
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required class="input-field">
                 <span class="eye-icon" onclick="togglePassword()">

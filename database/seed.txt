@@ -1,0 +1,20 @@
+# População inicial de dados
+-- Inserindo dados iniciais na tabela de usuarios
+INSERT INTO usuarios (cpf, nome, email, senha, tipo) VALUES
+('55544433322', 'Pedro Alencar', 'pedro.alencar@lumina.com', 'senha123', 'admin'),
+('22233344455', 'Julia Fernandes', 'julia.fernandes@lumina.com', 'senha456', 'funcionario'),
+('99988877766', 'Roberto Lima', 'roberto.lima@lumina.com', 'senha789', 'funcionario');
+
+-- Inserindo dados iniciais na tabela de eventos
+INSERT INTO eventos (nome, descricao, data_evento, local, capacidade, criado_por) VALUES
+('Conferência de Negócios', 'Discussão sobre tendências de mercado.', '2025-06-10', 'Centro de Convenções', 200, 1),
+('Workshop de Design', 'Exploração de novas ferramentas de design.', '2025-07-15', 'Sala de Conferência A', 80, 1);
+
+-- Inserindo dados iniciais na tabela de participantes
+INSERT INTO participantes (nome, email, evento_id) VALUES
+('Mariana Santos', 'mariana.santos@gmail.com', 1),
+('Lucas Oliveira', 'lucas.oliveira@gmail.com', 1),
+('Beatriz Costa', 'beatriz.costa@gmail.com', 2);
+
+-- Exibe as tabelas criadas
+SHOW TABLES;
