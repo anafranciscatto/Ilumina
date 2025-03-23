@@ -44,26 +44,36 @@ def entrar():
     return render_template('login.html')
 
 # Rota para a página de cadastro
-@app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro():
+@app.route('/cadastrar', methods=['GET', 'POST'])
+def cadastrar():
     if request.method == 'POST':
         cpf = request.form['cpf']
         nome = request.form['nome']
         email = request.form['email']
         senha = request.form['senha']
-        tipo = request.form.get('tipo', 'funcionario')
+
+        # Verificar se o CPF ou e-mail já existe no banco
+        cursor.execute("SELECT * FROM usuarios WHERE cpf = %s OR email = %s", (cpf, email))
+        usuario_existente = cursor.fetchone()
+
+        if usuario_existente:
+            return "CPF ou e-mail já cadastrado. Tente novamente com outro."
 
         try:
+            # Inserir o novo usuário no banco de dados
             cursor.execute("""
                 INSERT INTO usuarios (cpf, nome, email, senha, tipo)
                 VALUES (%s, %s, %s, %s, %s)
-            """, (cpf, nome, email, senha, tipo))
-            conn.commit()
-            return redirect(url_for('entrar'))  # Redireciona para o login após cadastro
+            """, (cpf, nome, email, senha, 'funcionario'))  # tipo é 'funcionario' por padrão
+            conn.commit()  # Salvar no banco de dados
+
+            return redirect(url_for('entrar'))  # Redirecionar para a página de login após o cadastro
+
         except mysql.connector.Error as err:
             return f"Erro ao cadastrar: {err}"
 
-    return render_template('cadastro.html')
+    return render_template('cadastro.html')  # Renderizar o formulário de cadastro
+
 
 # Rota para logout
 @app.route('/sair')
