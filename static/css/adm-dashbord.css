@@ -1,0 +1,93 @@
+/* Ajuste o tamanho da imagem da navbar */
+.navbar-brand img {
+    width: 80px; /* Ajuste o valor conforme necessário */
+    height: auto;
+}
+
+/* Ajuste para sr-only (quando a classe for usada) */
+.sr-only {
+    color: var(--cor-principal);
+}
+
+/* Cards */
+.card {
+    margin-bottom: 20px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+/* Tabela de eventos */
+.table th, .table td {
+    text-align: center;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+/* Estilos gerais para o conteúdo */
+.container-fluid {
+    padding-top: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+
+    /* Ajuste dos cards em dispositivos menores */
+    .col-md-4 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Tabela de eventos em dispositivos menores */
+    .table {
+        font-size: 14px;
+    }
+}
+
+/* Estilos para o layout da tabela */
+.table th, .table td {
+    padding: 12px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #ffffff;
+}
+
