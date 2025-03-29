@@ -1,0 +1,10 @@
+/* Ajuste o tamanho da imagem da navbar */
+.navbar-brand img {
+    width: 80px; /* Ajuste o valor conforme necessário */
+    height: auto;
+}
+
+/* Ajuste para sr-only (quando a classe for usada) */
+.sr-only {
+    color: var(--cor-principal);
+}
